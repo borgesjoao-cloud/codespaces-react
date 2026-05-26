@@ -268,23 +268,61 @@ console.log(estoque);
 
 */
 
-/* a) 
+/*   a) Valor total de todos os produtos em estoque 
 */
 
-console.log(
+const total =
   estoque.reduce((soma, product) => soma + product.price * product.qty, 0)
-  .toFixed(2)
+;
+console.log(total);
+
+
+/*   b) Ordene os produtos por nome (crescente/descrescente)
+*/
+
+const crescente = 
+  estoque.toSorted((a, b) => a.name - b.name); // Ordem crescente
+
+console.log(crescente);
+
+const decrescente =
+estoque.toSorted((a, b) => b.name - a.name); // Ordem decrescente
+
+console.log(decrescente);
+
+
+/*   c) Ordene os produtos por preço (crescente/descrescente)
+*/
+
+const maiorPreço = 
+  estoque.toSorted((a, b) => a.price - b.price); // Ordem crescente
+
+console.log(maiorPreço);
+
+
+const menorPreço =
+  estoque.toSorted((a, b) => b.price - a.price); // Ordem decrescente
+
+console.log(menorPreço);
+
+
+/* d) Filtre produtos de acordo com uma categoria
+*/
+
+let celular = estoque.filter(
+  (product) => product.category === 'Celular'
 );
 
-/* b) 
-*/
+console.log(celular);
 
-console.log(estoque.toSorted((a, b) => a.name - b.name)); // Ordem crescente
+let tablet = estoque.filter(
+  (product) => product.category === 'Tablet'
+);
 
-/* c) 
-*/
+console.log(tablet);
 
-console.log(estoque.toSorted((a, b) => b.price - a.price)); // Ordem decrescente
+let notebook = estoque.filter(
+  (product) => product.category === 'Notebook'
+);
 
-/* d) 
-*/
+console.log(notebook);
