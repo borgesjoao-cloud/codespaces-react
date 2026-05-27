@@ -281,12 +281,12 @@ console.log(total);
 */
 
 const crescente = 
-  estoque.toSorted((a, b) => a.name - b.name); // Ordem crescente
+  estoque.toSorted((a, b) => a.name.localCompare(b.name)); // Ordem crescente
 
 console.log(crescente);
 
 const decrescente =
-estoque.toSorted((a, b) => b.name - a.name); // Ordem decrescente
+estoque.toSorted((a, b) => b.name.localCompare(a.name)); // Ordem decrescente
 
 console.log(decrescente);
 
