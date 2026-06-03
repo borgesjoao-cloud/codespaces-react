@@ -101,4 +101,3 @@ let notebook = estoque.filter(
 
 console.log("Notebooks: ", notebook);
 console.log('\n');
-
