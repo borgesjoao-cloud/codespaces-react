@@ -1,9 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import NoticeList from "./components/NoticeList";
 
 function App() {
-  const notices = [
+  const [notices, setNotices] = useState([
     {
       id: 1,
       title: "Secitex Macau 2026",
@@ -22,7 +23,16 @@ function App() {
       date: "01/07/2026",
       featured: false,
     },
-  ];
+  ]);
+
+  function handleToggleFeatured(id) {
+    setNotices((notices) =>
+      notices.map(
+        (notice) =>
+          notice.id === id ? { ...notice, featured: !notice.featured } : notice,
+      ),
+    );
+  }
 
   return (
     <>
@@ -30,7 +40,7 @@ function App() {
         title={"Programação para Internet"}
         subtitle={"Curso Técnico Integrado em Informática"}
       />
-      <NoticeList notices={notices} />
+      <NoticeList notices={notices} onToggleFeatured={handleToggleFeatured} />
     </>
   );
 }
